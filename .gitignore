@@ -69,3 +69,16 @@ public/scripts/extensions/third-party
 yarn.lock
 *.code-workspace
 test-results/
+# 忽略测试目录和测试文件
+/tests/
+test-api.mjs
+test-api2.mjs
+test-local.mjs
+test_api_connector.py
+test_chat.py
+test_send_textarea.py
+test_tavern_helper.py
+test_chat_basic.js
+test_chat_basic.mjs
+test_chat_page.js
+test_chat_page.mjs
