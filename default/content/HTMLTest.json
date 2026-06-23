@@ -1,0 +1,11 @@
+{
+    "name": "HTMLTest角色",
+    "description": "测试 HTML 渲染功能的角色卡",
+    "personality": "HTML",
+    "first_mes": "```html\n<div style=\"background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 12px; color: white; text-align: center;\">\n    <h2 style=\"margin: 0 0 10px 0;\">🌟 欢迎来到 HTML 测试房间 🌟</h2>\n    <p style=\"font-size: 16px; opacity: 0.9;\">如果你能看到这段带样式的文字，说明 HTML 渲染正常工作！</p>\n    <button onclick=\"alert('脚本执行成功！')\" style=\"background: #ff6b6b; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px;\">点击测试脚本执行</button>\n    <div id=\"testDiv\" style=\"margin-top: 15px; font-style: italic; color: #ffd700;\">等待脚本初始化...</div>\n</div>\n<script>\n    document.getElementById('testDiv').textContent = '✅ 内联脚本执行成功！时间: ' + new Date().toLocaleTimeString();\n</script>\n```",
+    "system_prompt": "你是一个用于测试 HTML 渲染功能的角色。",
+    "tags": ["HTML", "测试"],
+    "worldbooks": [],
+    "avatar": "",
+    "isSystem": false
+}

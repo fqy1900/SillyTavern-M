@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>角色卡列表 - SillyTavern</title>
+    <link href="webfonts/NotoSans/stylesheet.css" rel="stylesheet">
+    <link href="css/fontawesome.min.css" rel="stylesheet">
+    <link href="css/solid.min.css" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-page: #121215;
+            --bg-card: #1c1c21;
+            --bg-input: #25252b;
+            --bg-hover: #2e2e35;
+            --border: #33333d;
+            --border-focus: #7c6af0;
+            --text-primary: #ececf0;
+            --text-secondary: #9898a8;
+            --text-muted: #6a6a78;
+            --accent: #7c6af0;
+            --accent-hover: #9485f5;
+            --accent-glow: rgba(124, 106, 240, 0.15);
+            --danger: #e55555;
+            --success: #55cc88;
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Noto Sans', 'Segoe UI', -apple-system, sans-serif;
+            background: var(--bg-page);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse 600px 400px at 15% 20%, rgba(124, 106, 240, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 500px 500px at 85% 80%, rgba(124, 106, 240, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header */
+        .chars-header {
+            position: relative;
+            z-index: 10;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chars-header-inner {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .chars-logo {
+            height: 32px;
+            width: auto;
+            opacity: 0.9;
+        }
+
+        .chars-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chars-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .chars-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chars-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .chars-nav-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+
+        .chars-nav-btn i {
+            font-size: 12px;
+        }
+
+        /* Main */
+        .chars-main {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Section Header */
+        .chars-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .chars-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chars-section-title i {
+            color: var(--accent);
+        }
+
+        .chars-count {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .chars-count strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Loading */
+        .chars-loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .chars-loading i {
+            display: block;
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--accent);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty */
+        .chars-empty {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+        }
+
+        .chars-empty i {
+            display: block;
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--border);
+        }
+
+        /* Grid */
+        .chars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card */
+        .char-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .char-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .char-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accent-glow);
+        }
+
+        .char-card:hover::before {
+            opacity: 1;
+        }
+
+        .char-card-avatar {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: var(--bg-input);
+            display: block;
+        }
+
+        .char-card-body {
+            padding: 16px;
+        }
+
+        .char-card-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .char-card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 12px;
+            min-height: 36px;
+        }
+
+        .char-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .char-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .char-card:hover .char-tag {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* System Badge */
+        .char-system-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chars-modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 680px;
+            max-height: 85vh;
+            overflow: hidden;
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.25s ease;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-overlay.active .chars-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .chars-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chars-modal-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chars-modal-title i {
+            color: var(--accent);
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius);
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--danger);
+        }
+
+        .chars-modal-body {
+            display: flex;
+            gap: 24px;
+            padding: 24px;
+            overflow-y: auto;
+            max-height: calc(85vh - 140px);
+        }
+
+        .chars-modal-left {
+            flex-shrink: 0;
+        }
+
+        .chars-modal-avatar {
+            width: 200px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-input);
+        }
+
+        .chars-modal-right {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .chars-modal-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .chars-modal-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .chars-modal-desc::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chars-modal-desc::-webkit-scrollbar-track {
+            background: var(--bg-input);
+        }
+
+        .chars-modal-desc::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 2px;
+        }
+
+        .chars-modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .chars-modal-wb {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            margin-bottom: 20px;
+        }
+
+        .chars-modal-wb h4 {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chars-modal-wb h4 i {
+            color: var(--accent);
+        }
+
+        .chars-modal-wb-entry {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 4px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chars-modal-wb-entry:last-child {
+            border-bottom: none;
+        }
+
+        .chars-start-btn {
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: var(--radius);
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .chars-start-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .chars-start-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 24px;
+            font-size: 14px;
+            color: var(--text-primary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            border-color: var(--success);
+        }
+
+        .toast.error {
+            border-color: var(--danger);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .chars-modal-body {
+                flex-direction: column;
+            }
+
+            .chars-modal-avatar {
+                width: 100%;
+                height: 200px;
+            }
+
+            .chars-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 12px;
+            }
+
+            .char-card-avatar {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body class="login characters-page">
+    <!-- 顶部导航 -->
+    <header class="chars-header">
+        <div class="chars-header-inner">
+            <img src="img/logo.png" alt="Logo" class="chars-logo">
+            <h1 class="chars-title">角色卡列表</h1>
+            <nav class="chars-nav">
+                <a href="/login" class="chars-nav-btn">
+                    <i class="fas fa-sign-in-alt"></i> 登录
+                </a>
+                <a href="/register" class="chars-nav-btn">
+                    <i class="fas fa-user-plus"></i> 注册
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 角色卡网格 -->
+    <main class="chars-main">
+        <div class="chars-section-header">
+            <div class="chars-section-title">
+                <i class="fas fa-users"></i>
+                <span>可用角色</span>
+            </div>
+            <div class="chars-count">
+                共 <strong id="charCount">0</strong> 个角色
+            </div>
+        </div>
+
+        <div id="charsLoading" class="chars-loading">
+            <i class="fas fa-spinner"></i>
+            正在加载角色卡...
+        </div>
+        <div id="charsGrid" class="chars-grid" style="display:none;"></div>
+        <div id="charsEmpty" class="chars-empty" style="display:none;">
+            <i class="fas fa-user-slash"></i>
+            <p>暂无可用角色卡</p>
+        </div>
+    </main>
+
+    <!-- 角色卡详情弹窗 -->
+    <div id="charModal" class="modal-overlay">
+        <div class="chars-modal">
+            <div class="chars-modal-header">
+                <div class="chars-modal-title">
+                    <i class="fas fa-crown"></i>
+                    <span>角色详情</span>
+                </div>
+                <button class="modal-close" id="charModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chars-modal-body">
+                <div class="chars-modal-left">
+                    <img id="charModalAvatar" src="" alt="avatar" class="chars-modal-avatar">
+                </div>
+                <div class="chars-modal-right">
+                    <h2 id="charModalName" class="chars-modal-name"></h2>
+                    <p id="charModalDesc" class="chars-modal-desc"></p>
+                    <div id="charModalTags" class="chars-modal-tags"></div>
+                    <div id="charModalWorldbooks" class="chars-modal-wb" style="display:none;">
+                        <h4><i class="fas fa-book"></i> 世界书</h4>
+                        <div id="charModalWbList"></div>
+                    </div>
+                    <button id="charModalStart" class="chars-start-btn">
+                        <i class="fas fa-comment-dots"></i>
+                        开始对话
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="lib/jquery-3.5.1.min.js"></script>
+    <script type="module" src="scripts/app-api.js"></script>
+    <script type="module">
+        import { authApi, chatApi } from './scripts/app-api.js';
+
+        $(document).ready(async () => {
+            // 检查登录状态
+            try {
+                const status = await authApi.status();
+                if (status.authed) {
+                    window.location.href = '/app';
+                    return;
+                }
+            } catch (e) { /* 未登录 */ }
+
+            const $grid = $('#charsGrid');
+            const $loading = $('#charsLoading');
+            const $empty = $('#charsEmpty');
+            const $modal = $('#charModal');
+            const $count = $('#charCount');
+            const $toast = $('#toast');
+
+            let currentChar = null;
+
+            function showToast(msg, type = '') {
+                $toast.text(msg).removeClass('success error').addClass(type).addClass('show');
+                setTimeout(() => $toast.removeClass('show'), 3000);
+            }
+
+            async function loadCharacters() {
+                try {
+                    const res = await chatApi.getCharacters();
+                    $loading.hide();
+                    if (!res.success || !res.characters || res.characters.length === 0) {
+                        $empty.show();
+                        return;
+                    }
+                    $count.text(res.characters.length);
+                    renderCharacters(res.characters);
+                    $grid.show();
+                } catch (e) {
+                    $loading.html('<i class="fas fa-exclamation-triangle" style="color:var(--danger)"></i> 加载失败：' + e.message);
+                }
+            }
+
+            function renderCharacters(chars) {
+                $grid.empty();
+                chars.forEach(ch => {
+                    const isSystem = ch.isSystem;
+                    const $card = $(`
+                        <div class="char-card" data-id="${ch.id}">
+                            ${isSystem ? '<div class="char-system-badge"><i class="fas fa-crown"></i> 系统</div>' : ''}
+                            <img src="${ch.avatar}" alt="${ch.name}" class="char-card-avatar">
+                            <div class="char-card-body">
+                                <div class="char-card-name">${ch.name}</div>
+                                <div class="char-card-desc">${ch.description || '暂无描述'}</div>
+                                ${ch.tags && ch.tags.length ? `<div class="char-card-tags">${ch.tags.slice(0,3).map(t => `<span class="char-tag">${t}</span>`).join('')}</div>` : ''}
+                            </div>
+                        </div>
+                    `);
+                    $card.find('.char-card-avatar').one('error', function() {
+                        this.src = 'img/No-Image-Placeholder.svg';
+                    });
+                    $card.on('click', () => openCharModal(ch.id));
+                    $grid.append($card);
+                });
+            }
+
+            async function openCharModal(charId) {
+                try {
+                    const res = await chatApi.getCharacter(charId);
+                    if (!res.success || !res.character) return showToast('加载角色信息失败', 'error');
+                    currentChar = res.character;
+                    $('#charModalAvatar').one('error', function() { this.src = 'img/No-Image-Placeholder.svg'; }).attr('src', currentChar.avatar || 'img/No-Image-Placeholder.svg');
+                    $('#charModalName').text(currentChar.name || charId);
+                    $('#charModalDesc').text(currentChar.description || '暂无描述');
+                    $('#charModalTags').empty();
+                    if (currentChar.tags && currentChar.tags.length) {
+                        currentChar.tags.forEach(t => $('#charModalTags').append(`<span class="char-tag">${t}</span>`));
+                    }
+                    const $wb = $('#charModalWorldbooks');
+                    const $wbList = $('#charModalWbList');
+                    $wbList.empty();
+                    if (currentChar.worldbooks && currentChar.worldbooks.length) {
+                        $wb.show();
+                        currentChar.worldbooks.forEach(w => {
+                            $wbList.append(`<div class="chars-modal-wb-entry">${w.name}</div>`);
+                        });
+                    } else {
+                        $wb.hide();
+                    }
+                    $modal.addClass('active');
+                } catch (e) {
+                    showToast('网络错误：' + e.message, 'error');
+                }
+            }
+
+            function closeModal() {
+                $modal.removeClass('active');
+                currentChar = null;
+            }
+
+            $('#charModalClose').on('click', closeModal);
+            $modal.on('click', (e) => { if (e.target === $modal[0]) closeModal(); });
+
+            $('#charModalStart').on('click', async () => {
+                if (!currentChar) return;
+                try {
+                    const status = await authApi.status();
+                    if (!status.authed) {
+                        showToast('请先登录后再开始对话', 'error');
+                        setTimeout(() => window.location.href = '/login', 1500);
+                        return;
+                    }
+                    window.location.href = `/app?view=chat&char=${currentChar.id}`;
+                } catch (e) {
+                    window.location.href = '/login';
+                }
+            });
+
+            loadCharacters();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "beforeTabsResult": {
+    "bg_tabs_children_count": 3,
+    "bg_tabs_children": [
+      "UL",
+      "DIV#bg_global_tab",
+      "DIV#bg_chat_tab"
+    ],
+    "bg_global_tab_count": 1,
+    "bg_chat_tab_count": 1,
+    "sheld_count": 1,
+    "chat_count": 1,
+    "bg_tabs_html_length": 3689
+  },
+  "afterTabsResult": {
+    "bg_tabs_children_count": 5,
+    "bg_tabs_children": [
+      "UL",
+      "DIV#ui-id-4",
+      "DIV#ui-id-6",
+      "DIV#bg_global_tab",
+      "DIV#bg_chat_tab"
+    ],
+    "bg_tabs_html_length": 831025,
+    "bg_global_tab_count": 2,
+    "bg_chat_tab_count": 2,
+    "sheld_count": 2,
+    "chat_count": 2
+  },
+  "extraTabResult": {
+    "bg_global_tabs": [
+      {
+        "index": 0,
+        "parent_chain": [
+          "DIV#bg_tabs",
+          "DIV#Backgrounds",
+          "DIV#backgrounds-button",
+          "DIV#top-settings-holder",
+          "DIV#ui-id-4"
+        ],
+        "html_length": 1314,
+        "in_bg_tabs": true
+      },
+      {
+        "index": 1,
+        "parent_chain": [
+          "DIV#bg_tabs",
+          "DIV#Backgrounds",
+          "DIV#backgrounds-button",
+          "DIV#top-settings-holder",
+          "BODY"
+        ],
+        "html_length": 53321,
+        "in_bg_tabs": true
+      }
+    ],
+    "bg_chat_tabs": [
+      {
+        "index": 0,
+        "parent_chain": [
+          "DIV#bg_tabs",
+          "DIV#Backgrounds",
+          "DIV#backgrounds-button",
+          "DIV#top-settings-holder",
+          "DIV#ui-id-4"
+        ],
+        "html_length": 423,
+        "in_bg_tabs": true
+      },
+      {
+        "index": 1,
+        "parent_chain": [
+          "DIV#bg_tabs",
+          "DIV#Backgrounds",
+          "DIV#backgrounds-button",
+          "DIV#top-settings-holder",
+          "BODY"
+        ],
+        "html_length": 423,
+        "in_bg_tabs": true
+      }
+    ]
+  }
+}

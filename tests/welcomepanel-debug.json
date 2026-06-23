@@ -1,0 +1,32 @@
+{
+  "allChatIdElements": 2,
+  "welcomePanel": {
+    "totalChildren": 3,
+    "childrenTags": [
+      "DIV.welcomeHeaderTitle",
+      "DIV.welcomeHeader",
+      "DIV.welcomeRecent"
+    ],
+    "has_mes_inside": 0,
+    "innerHTML_preview": "\n    <div class=\"welcomeHeaderTitle\">\n        <img src=\"img/logo.png\" alt=\"SillyTavern 徽标\" data-i18n=\"[alt]SillyTavern Logo\" class=\"welcomeHeaderLogo\">\n        <span class=\"welcomeHeaderVersionDisplay\">SillyTavern 1.18.0</span>\n        <div class=\"mes_button showRecentChats\" title=\"显示最近的聊天\" data-i18n=\"[title]Show recent chats\" role=\"button\">\n            <i class=\"fa-solid fa-circle-chevron-down fa-fw fa-lg\"></i>\n        </div>\n        <div class=\"mes_button recentChatsSettings\" title=\"Recent chats settings\" data-i18n=\"[title]Recent chats settings\" role=\"button\">\n            <i class=\"fa-solid fa-gear fa-fw fa-lg\"></i>\n        </div>\n        <div class=\"mes_button hideRecentChats\" title=\"隐藏最近的聊天\" data-i18n=\"[title]Hide recent chats\" role=\"button\">\n            <i class=\"fa-solid fa-circle-xmark fa-fw fa-lg\"></i>\n        </div>\n    </div>\n    <div class=\"welcomeHeader\">\n        <div class=\"recentChatsTitle\" data-i18n=\"Recent Chats\">最近的聊天</div>\n        <div class=\"welcomeShortcuts\">\n            <a class=\"menu_button menu_button_icon interactable\" href=\"https://docs.sillytavern.app/\" target=\"_blank\" rel=\"noopener\" tabindex=\"0\" role=\"button\">\n                <i class=\"fa-solid fa-question-circle\"></i>\n                <span data-i18n=\"Docs\">文档</span>\n            </a>\n            <a class=\"menu_button menu_button_icon interactable\" href=\"https://github.com/SillyTavern/SillyTavern\" target=\"_blank\" rel=\"noopener\" tabindex=\"0\" role=\"button\">\n                <i class=\"fa-brands fa-github\"></i>\n                <span data-i18n=\"GitHub\">GitHub</span>\n            </a>\n            <a class=\"menu_button menu_button_icon interactable\" href=\"https://discord.gg/sillytavern\" target=\"_blank\" rel=\"noopener\" tabindex=\"0\" role=\"button\">\n                <i class=\"fa-brands fa-discord\"></i>\n                <span data-i18n=\"Discord\">Discord</span>\n            </a>\n            <span class=\"welcomeShortcutsSeparator\">|</span>\n            <button class=\"openTemporaryChat menu_button menu_button_ic"
+  },
+  "chatDirectChildren": [
+    {
+      "idx": 0,
+      "tag": "DIV",
+      "id": "",
+      "className": "welcomePanel",
+      "innerHTML_length": 51281,
+      "innerText_preview": "\n    \n        \n        SillyTavern 1.18.0\n        \n            \n        \n        \n            \n        \n        \n            \n        \n    \n    \n        最近的聊天\n        \n            \n                \n  ",
+      "has_mes_children": 0
+    }
+  ],
+  "allMesCountInChat": 0,
+  "jqueryTest": {
+    "jquery_chat_count": 1,
+    "jquery_chat_first_tag": "DIV",
+    "jquery_chat_first_html": "<div id=\"chat\">\n        <div class=\"welcomePanel\">\n    <div class=\"welcomeHeaderTitle\">\n        <img src=\"img/logo.png\" alt=\"SillyTavern 徽标\" data-i18n=\"[alt]SillyTavern Logo\" class=\"welcomeHeaderLogo\">\n        <span class=\"welcomeHeaderVersionDisplay\">SillyTavern 1.18.0</span>\n        <div class=\"mes_button showRecentChats\" title=\"显示最近的聊天\" data-i18n=\"[title]Show recent chats\" role=\"button\">\n            <i class=\"fa-solid fa-circle-chevron-down fa-fw fa-lg\"></i>\n        </div>\n        <div class=",
+    "jquery_chat_children": 1,
+    "jquery_chat_find_mes": 0
+  }
+}

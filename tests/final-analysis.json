@@ -1,0 +1,89 @@
+{
+  "bg_tabs_html_length": 831025,
+  "bg_tabs_children_count": 5,
+  "bg_tabs_child_ids": [
+    "UL class=bg_tabs_list ui-tabs-nav ui-corner-all ui-helper-r",
+    "DIV#ui-id-4 class=ui-tabs-panel ui-corner-bottom ui-widget-content",
+    "DIV#ui-id-6 class=ui-tabs-panel ui-corner-bottom ui-widget-content",
+    "DIV#bg_global_tab class=bg_tab_panel",
+    "DIV#bg_chat_tab class=bg_tab_panel"
+  ],
+  "bg_global_tab_exists": true,
+  "bg_global_tab_parent_id": "bg_tabs",
+  "bg_global_tab_html_length": 1314,
+  "bg_global_tab_preview": "\n                        <div id=\"bg_folder_breadcrumb\" class=\"bg_folder_breadcrumb\" style=\"display:none;\">\n                            <button id=\"bg_back_to_folders\" class=\"menu_button menu_button_i",
+  "bg_chat_tab_exists": true,
+  "bg_chat_tab_parent_id": "bg_tabs",
+  "bg_chat_tab_html_length": 423,
+  "bg_chat_tab_preview": "\n                        <div id=\"bg_custom_content\" class=\"bg_list\" role=\"list\"></div>\n                        <div id=\"bg_chat_hint\" class=\"wide100p textAlignCenter\">\n                            <sp",
+  "bg_global_tab_count": 2,
+  "bg_chat_tab_count": 2,
+  "first_sheld_parent_chain": [
+    {
+      "tag": "DIV",
+      "id": "sheld",
+      "class": ""
+    },
+    {
+      "tag": "DIV",
+      "id": "ui-id-4",
+      "class": "ui-tabs-panel ui-corner-bottom ui-widget-content"
+    },
+    {
+      "tag": "DIV",
+      "id": "bg_tabs",
+      "class": "heading-container-with-controls ui-tabs ui-corner-"
+    },
+    {
+      "tag": "DIV",
+      "id": "Backgrounds",
+      "class": "drawer-content closedDrawer bg-drawer-layout"
+    },
+    {
+      "tag": "DIV",
+      "id": "backgrounds-button",
+      "class": "drawer"
+    }
+  ],
+  "second_sheld_parent_chain": [
+    {
+      "tag": "DIV",
+      "id": "sheld",
+      "class": ""
+    },
+    {
+      "tag": "BODY",
+      "id": "",
+      "class": "no-blur drop_target no_animation noShadows no-time"
+    },
+    {
+      "tag": "HTML",
+      "id": "",
+      "class": ""
+    }
+  ],
+  "jquery_chat_element_position": [
+    {
+      "index": 0,
+      "parent_id": "sheld",
+      "visible": false,
+      "display": "flex",
+      "visibility": "visible",
+      "rect_width": 0,
+      "rect_height": 0,
+      "child_count": 1,
+      "has_mes": false
+    },
+    {
+      "index": 1,
+      "parent_id": "sheld",
+      "visible": true,
+      "display": "flex",
+      "visibility": "visible",
+      "rect_width": 640,
+      "rect_height": 644.5,
+      "child_count": 2,
+      "has_mes": true
+    }
+  ]
+}

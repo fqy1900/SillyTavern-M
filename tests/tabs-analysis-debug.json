@@ -1,0 +1,405 @@
+{
+  "result": {
+    "tabs_found": 1,
+    "tabs_data_ui_tabs": false,
+    "tabs_options": null,
+    "bg_global_tab_in_tabs": true,
+    "bg_chat_tab_in_tabs": true,
+    "bg_global_tab_count": 2,
+    "bg_chat_tab_count": 2,
+    "ui_id_4_content_preview": "\n\n\n\n    <title>SillyTavern</title>\n    <base href=\"/\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, viewport-fit=cover, initial-scale=1, maximum-scale=1.0, user-sc",
+    "tab_anchors": [
+      {
+        "href": "#bg_global_tab",
+        "text": "全局"
+      },
+      {
+        "href": "#bg_chat_tab",
+        "text": "聊天"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/common-settings/",
+        "text": "\n                    \n                "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/novelai/",
+        "text": "\n                                            \n                                        "
+      },
+      {
+        "href": "https://openrouter.ai/docs/transforms",
+        "text": ""
+      },
+      {
+        "href": "https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md",
+        "text": "\n                                                \n                                                    \n                                                \n                                            "
+      },
+      {
+        "href": "https://github.com/MrJackSpade/adaptive-p-docs",
+        "text": "\n                                                \n                                            "
+      },
+      {
+        "href": "https://github.com/oobabooga/text-generation-webui/pull/6335",
+        "text": "\n                                                \n                                            "
+      },
+      {
+        "href": "https://github.com/oobabooga/text-generation-webui/pull/5677",
+        "text": "\n                                                \n                                            "
+      },
+      {
+        "href": "https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md",
+        "text": "\n                                                    \n                                                "
+      },
+      {
+        "href": "https://json-schema.org/learn/getting-started-step-by-step",
+        "text": "\n                                                \n                                                    \n                                                \n                                            "
+      },
+      {
+        "href": "https://platform.openai.com/docs/guides/function-calling",
+        "text": "功能工具"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/prompts/reasoning/#reasoning-effort",
+        "text": ""
+      },
+      {
+        "href": "https://platform.openai.com/tokenizer/",
+        "text": "分词器"
+      },
+      {
+        "href": "https://aihorde.net/",
+        "text": "AI Horde 网站"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/horde/",
+        "text": "查看隐私声明"
+      },
+      {
+        "href": "https://aihorde.net/register",
+        "text": "注册 Horde 帐户以加快排队时间"
+      },
+      {
+        "href": "https://github.com/Haidra-Org/horde-worker-reGen?tab=readme-ov-file#ai-horde-worker-regen",
+        "text": "了解如何将您的空闲 GPU 时钟周期共享给 Horde"
+      },
+      {
+        "href": "https://aihorde.net/register",
+        "text": "注册"
+      },
+      {
+        "href": "javascript:void(0);",
+        "text": "查看我的荣誉"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/novelai/",
+        "text": " 获取您的 NovelAI API 密钥"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/novelai/#models",
+        "text": "\n                                    \n                                "
+      },
+      {
+        "href": "https://openrouter.ai/keys/",
+        "text": "OpenRouter"
+      },
+      {
+        "href": "https://openrouter.ai/settings/credits",
+        "text": "查看剩余额度"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/dreamgen/",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://mancer.tech/",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://github.com/oobabooga/text-generation-webui",
+        "text": "\n                                        oobabooga/text-generation-webui\n                                    "
+      },
+      {
+        "href": "https://featherless.ai/models/",
+        "text": "\n                                        featherless.ai\n                                    "
+      },
+      {
+        "href": "https://github.com/vllm-project/vllm",
+        "text": "vllm-project/vllm（OpenAI API 包装器模式）"
+      },
+      {
+        "href": "https://github.com/PygmalionAI/aphrodite-engine",
+        "text": "PygmalionAI/aphrodite-engine（用于 OpenAI API 的包装器）"
+      },
+      {
+        "href": "https://github.com/ggml-org/llama.cpp/blob/master/README.md#llama-server",
+        "text": "ggml-org/llama.cpp"
+      },
+      {
+        "href": "https://github.com/ollama/ollama",
+        "text": "\n                                        ollama/ollama\n                                    "
+      },
+      {
+        "href": "https://github.com/theroyallab/tabbyAPI",
+        "text": "\n                                        theroyallab/tabbyAPI\n                                    "
+      },
+      {
+        "href": "https://github.com/LostRuins/koboldcpp",
+        "text": "\n                                        LostRuins/koboldcpp\n                                    "
+      },
+      {
+        "href": "https://platform.openai.com/account/usage",
+        "text": "\n                                    查看 API 使用情况\n                                "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/openai/",
+        "text": "这些步骤"
+      },
+      {
+        "href": "https://console.anthropic.com/account/keys",
+        "text": "Anthropic 开发者控制台"
+      },
+      {
+        "href": "https://openrouter.ai/keys/",
+        "text": "OpenRouter"
+      },
+      {
+        "href": "https://openrouter.ai/settings/credits",
+        "text": "查看剩余额度"
+      },
+      {
+        "href": "https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview",
+        "text": "（快速模式）"
+      },
+      {
+        "href": "https://cloud.google.com/vertex-ai/docs/authentication",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/locations",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://playground.electronhub.ai/console",
+        "text": "查看剩余额度"
+      },
+      {
+        "href": "https://chutes.ai/app/api/billing-balance",
+        "text": "查看账单/余额"
+      },
+      {
+        "href": "https://nano-gpt.com/balance",
+        "text": "查看剩余额度"
+      },
+      {
+        "href": "https://dash.cloudflare.com/?to=/:account/ai/workers-ai/api-quick-start",
+        "text": "Cloudflare Workers AI API Key"
+      },
+      {
+        "href": "https://dash.cloudflare.com/?to=/:account/workers-and-pages",
+        "text": "Cloudflare Account ID"
+      },
+      {
+        "href": "https://api.cometapi.com/",
+        "text": "CometAPI API 密钥"
+      },
+      {
+        "href": "https://console.x.ai/",
+        "text": "xAI API 密钥"
+      },
+      {
+        "href": "https://enter.pollinations.ai/",
+        "text": "Pollinations API 密钥"
+      },
+      {
+        "href": "https://platform.moonshot.ai/console/api-keys",
+        "text": "Moonshot AI API 密钥"
+      },
+      {
+        "href": "https://z.ai/manage-apikey/apikey-list",
+        "text": "Z.AI API 密钥"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/api-connections/openai/#prompt-post-processing",
+        "text": "\n                                    \n                                "
+      },
+      {
+        "href": "javascript:void(0);",
+        "text": "\n                        查看隐藏的 API 密钥\n                    "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/advancedformatting/",
+        "text": "\n                            \n                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/advancedformatting/#custom-stopping-strings",
+        "text": "\n                                    \n                                "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/prompts/tokenizer/",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/worldinfo/",
+        "text": "\n                            \n                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/user-settings/",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/st-script/#strict-escaping",
+        "text": "\n                                            \n                                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/st-script/#replace-variable-macros",
+        "text": "\n                                            \n                                        "
+      },
+      {
+        "href": "#bg_global_tab",
+        "text": "全局"
+      },
+      {
+        "href": "#bg_chat_tab",
+        "text": "聊天"
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/personas/",
+        "text": "\n                                    \n                                "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#character-tokens",
+        "text": ""
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#character-description",
+        "text": "\n                                            \n                                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#first-message",
+        "text": "\n                                            \n                                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/groupchats/",
+        "text": "\n                                        \n                                    "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#personality-summary",
+        "text": ""
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#scenario",
+        "text": "\n                        \n                    "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/characterdesign/#examples-of-dialogue",
+        "text": "\n                            \n                        "
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/chatfilemanagement/",
+        "text": ""
+      },
+      {
+        "href": "https://docs.sillytavern.app/usage/core-concepts/worldinfo/#inclusion-group",
+        "text": "\n                                    \n                                "
+      },
+      {
+        "href": null,
+        "text": ""
+      },
+      {
+        "href": null,
+        "text": ""
+      },
+      {
+        "href": null,
+        "text": ""
+      },
+      {
+        "href": null,
+        "text": ""
+      },
+      {
+        "href": "https://docs.sillytavern.app/",
+        "text": "官方文档"
+      },
+      {
+        "href": "https://discord.gg/sillytavern",
+        "text": "Discord 服务器"
+      },
+      {
+        "href": "https://docs.sillytavern.app/",
+        "text": "\n                \n                文档\n            "
+      },
+      {
+        "href": "https://github.com/SillyTavern/SillyTavern",
+        "text": "\n                \n                GitHub\n            "
+      },
+      {
+        "href": "https://discord.gg/sillytavern",
+        "text": "\n                \n                Discord\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                关闭聊天\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                切换面板\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                作者注释\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                CFG 缩放\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                Token 概率\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                返回到父级聊天\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                保存检查点\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                转换为群聊\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                开始新聊天\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                关闭聊天\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                管理聊天文件\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                删除消息\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                重新生成\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                AI 帮答\n            "
+      },
+      {
+        "href": null,
+        "text": "\n                \n                续写\n            "
+      }
+    ],
+    "bg_global_tab_parent": "bg_tabs",
+    "bg_chat_tab_parent": "bg_tabs"
+  },
+  "requests": []
+}
